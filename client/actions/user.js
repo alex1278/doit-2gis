@@ -9,7 +9,8 @@ export const signup =  (email , password) => (dispatch) => {
     .then(data => {
         console.log(data);
         localStorage.setItem('token' , data.token)
-        localStorage.setItem('userId', data._id);
+        localStorage.setItem('userId', data._id)
+        dispatch(push('/map'))
     })
     .catch(error => {
         console.log('error', error)
@@ -25,6 +26,8 @@ export const login = (email , password) => (dispatch) => {
         console.log('login ' , data);
         localStorage.setItem('token' , data.token)
         localStorage.setItem('userId', data._id);
+        dispatch(push('/map'))
+
     })
     .catch(error => {
         console.log('error' , error);
